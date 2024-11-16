@@ -1,0 +1,95 @@
+public class GestionHoteleria {
+    private static final int AGREGAR_EMPLEADO = 1;
+    private static final int LISTAR_EMPLEADOS = 2;
+    private static final int BUSCAR_EMPLEADO = 3;
+    private static final int TOTAL_SALARIOS = 4;
+    private static final int RENUNCIAS = 5;
+    private static final int PERSONAL_POR_CATEGORIA = 6; // Nueva opción
+    private static final int SALIR = 7;
+// static para que sirve? Clases anidadas estáticas:
+//La palabra clave static en programación se utiliza para declarar que un elemento (como una variable, un método o una clase) tiene un comportamiento particular en el contexto de su ámbito. Aquí hay algunos usos comunes de static en diferentes lenguajes:
+//
+//
+//
+
+//Constructor + Metodo Propio + Scanner
+Hizo la lista en el propio constructor/Metodo ahi  agrego datos a inicializacion directa. id, nobmr aepllido etc etc
+    //Constructor + Metodo Propio + Scanner
+    public static void main(String[] args) {
+        GestorEmpleados gestor = new GestorEmpleados();
+        gestor.agregarEmpleado(new PersonalHotelero(1, "Marta", "Recepcionista", 450000, "Recepcionista"));
+        gestor.agregarEmpleado(new PersonalHotelero(2, "Luis", "Chef Ejecutivo", 1500000, "Chef Ejecutivo"));
+        gestor.agregarEmpleado(new PersonalHotelero(3, "Sara", "Ama De Llaves", 800000, "Ama De Llaves"));
+        gestor.agregarEmpleado(new PersonalHotelero(4, "Carlos", "Gerente", 2000000, "Gerente"));
+        Scanner scanner = new Scanner(System.in);
+
+
+
+
+
+En Java, las palabras clave abstract y protected tienen propósitos distintos y se utilizan en diferentes contextos. Aquí te explico cada una:
+
+abstract
+Métodos abstractos:
+
+Un método declarado como abstract no tiene una implementación en la clase donde se define. Las subclases que heredan de esta clase deben proporcionar su propia implementación del método. Esto permite definir un comportamiento común sin especificar cómo se implementa.
+java
+Copiar código
+abstract class Animal {
+    abstract void hacerSonido();
+}
+
+class Perro extends Animal {
+    void hacerSonido() {
+        System.out.println("Guau");
+    }
+}
+Clases abstractas:
+
+Una clase que se declara como abstract no puede ser instanciada directamente. Sirve como base para otras clases que heredan de ella. Puede contener métodos abstractos, métodos concretos (con implementación) y atributos.
+java
+Copiar código
+abstract class Vehiculo {
+    abstract void conducir();
+}
+protected
+Acceso protegido:
+
+Cuando se declara un miembro (variable, método o constructor) como protected, este es accesible dentro de su propia clase, en clases del mismo paquete y en subclases, incluso si estas se encuentran en diferentes paquetes. Esto permite que las subclases tengan acceso a los miembros que necesitan sin exponerlos a todo el mundo.
+java
+Copiar código
+class Empleado {
+    protected int id;
+
+    protected void mostrarId() {
+        System.out.println("ID: " + id);
+    }
+}
+
+class Gerente extends Empleado {
+    void mostrar() {
+        id = 1; // Acceso permitido
+        mostrarId(); // Acceso permitido
+    }
+}
+Resumen
+abstract: Se utiliza para definir clases o métodos que no tienen implementación y que deben ser implementados en las subclases. Ayuda a establecer un contrato que las subclases deben cumplir.
+
+protected: Controla la visibilidad de los miembros de una clase, permitiendo que sean accesibles en la misma clase, en subclases y en clases del mismo paquete, lo que facilita la herencia y el encapsulamiento.
+
+Ambas palabras clave son fundamentales para la programación orientada a objetos en Java, promoviendo la reutilización del código y el diseño flexible.
+
+
+EL super ();
+
+// Subclase para Chef Ejecutivo
+class ChefEjecutivo extends PersonalHotel {
+    public ChefEjecutivo(int id, String nombre, double salarioMensual) {
+        super(id, nombre, "Chef Ejecutivo", salarioMensual);
+    }
+}
+
+
+switch case que solo anda co nnuemro no letras (UNICAMENTE se responde CON NUMEROS)
+salvo que le public static int=0;
+peor no puedo invocarlo con letras de todas manera 
